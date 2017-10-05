@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 teste = {'Espada de Aco': 1,
             'Casaco Gelido': 1,
             'Moeda de Ouro': 23,
