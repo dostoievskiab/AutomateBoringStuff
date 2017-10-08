@@ -58,7 +58,8 @@ for quizNum in range(35):
     if os.path.exists('./pagesCap8') == False:
         os.makedirs('./pagesCap8')
     quizFile = open('pagesCap8/capitalsquiz%s.txt' % (quizNum + 1), 'w')
-    answerKeyFile = open('pagesCap8/capitalsquiz_answers%s.txt' % (quizNum + 1), 'w')
+    answerKeyFile = open('pagesCap8/capitalsquiz_answers%s.txt' % (quizNum + 1),
+                        'w')
 
     quizFile.write('Name:\nDate:\nPeriod:\n\n')
     quizFile.write((' '*20) + 'State Capitals Quiz (Form %s)' % (quizNum + 1))
@@ -69,8 +70,17 @@ for quizNum in range(35):
     for questionNum in range(50):
         correctAnswer = capitalState[states[questionNum]]
         wrongAnswer = list(capitalState.values())
-        del wrongAnswer[wrongAnswer.index(correctAnswer)] #Making the wrongAnswer... wrong. lol
+        #Making the wrongAnswer... wrong. lol
+        del wrongAnswer[wrongAnswer.index(correctAnswer)]
         wrongAnswer = random.sample(wrongAnswer, 3)
-        answerOptions = wrongAnswers + [correctAnswer]
+        answerOptions = wrongAnswer + [correctAnswer]
         random.shuffle(answerOptions)
-        
+        quizFile.write('%s. What is the capital of %s?\n' % (questionNum + 1,
+                        states[questionNum]))
+        for i in range(4):
+            quizFile.write('    %s. %s\n' % ('ABCD'[i], answerOptions[i]))
+        quizFile.write('\n')
+        answerKeyFile.write('%s. %s\n' % (questionNum + 1,
+                            'ABCD'[answerOptions.index(correctAnswer)]))
+    quizFile.close()
+    answerKeyFile.close()
