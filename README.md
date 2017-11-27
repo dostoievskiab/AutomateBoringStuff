@@ -16,3 +16,4 @@ Brief explanation:
 * cap11-Lucky.py - Query google with something and open the first page (Like button 'Feeling lucky')
 * cap11-mapIt.py - Openning a Google Maps page with address pass in command line.
 * cap11-xkcd.py - Get all titles of XKCD comics. (changed from getting the image bc low connection speed)
+* cap11-Playing2048.py - Playing 2048 using Selenium module
